@@ -1,3 +1,15 @@
+Metadata-Version: 2.1
+Name: dnevniklib
+Version: 0.1
+Summary: lib for automatization work with dnevnik mos
+Home-page: https://github.com/dirtyhornet277/dnevniklib
+Author: Ivan Kriventsev
+Author-email: dirtyhornet277@outlook.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
 # Библиотека для автоматизированного сбора информации из Дневника МЭШ ```dnevniklib```
 
  На данном этапе вход в Дневник через библиотеку доступен !!!ТОЛЬКО!!! по токену аунтефикации, что в последующих версиях пофиксится
@@ -36,3 +48,4 @@ print(school_.get_info_about_school())
 
 ## Данная библиотека - является выплеском адреналина 7-ми классника.
 ## По поводу багов обращаться к создателю
+
