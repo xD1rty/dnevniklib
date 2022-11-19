@@ -6,13 +6,14 @@
 ```python 
 import dnevniklib
 user = dnevniklib.User(token="<TOKEN>")
+user.login_by_token()
 print(user.first_name)
 ```
 
 ### Код для получения оценок
 ```python
 import dnevniklib
-user = dnevniklib.User(token="<TOKEN>")
+user = dnevniklib.User(token="<TOKEN>").login_by_token()
 marks = dnevniklib.Marks(user.session, user.token, user.id)
 print(marks.get_marks_by_data("2022-11-16"))
 ```
@@ -21,7 +22,7 @@ print(marks.get_marks_by_data("2022-11-16"))
 ### Код для получения Д/З 
 ```python
 import dnevniklib
-user = dnevniklib.User(token="<TOKEN>")
+user = dnevniklib.User(token="<TOKEN>").login_by_token()
 homeworks = dnevniklib.Homeworks(user.session, user.token, user.id)
 print(homeworks.get_homeworks_by_data("2022-11-16"))
 ```
@@ -29,7 +30,7 @@ print(homeworks.get_homeworks_by_data("2022-11-16"))
 ### Код для получения данных школы
 ```python
 import dnevniklib
-user = dnevniklib.User(token="<TOKEN>")
+user = dnevniklib.User(token="<TOKEN>").login_by_token()
 school_ = dnevniklib.School(user.session, user.token)
 print(school_.get_info_about_school())
 ```

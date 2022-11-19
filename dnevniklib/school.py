@@ -1,5 +1,5 @@
 import requests
-import user
+import dnevniklib.user as user
 
 class School:
     def __init__(self, session, token) -> None:

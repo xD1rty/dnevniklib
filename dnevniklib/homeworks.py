@@ -1,6 +1,6 @@
 import requests
 import json
-import user
+import dnevniklib.user as user
 
 class Homeworks:
     def __init__(self, session, token, id) -> None:
