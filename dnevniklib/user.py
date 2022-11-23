@@ -41,6 +41,6 @@ class User:
         if result.json():
             return [result.json(), result.status_code]
 
-    def get_date_in_format(self, year, month, date):
+    def get_date_in_formats(self, year, month, date):
         return f"{year}-{month}-{date}" 
         
