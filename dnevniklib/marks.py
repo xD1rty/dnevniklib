@@ -25,6 +25,7 @@ class Marks:
                         {str(lesson_): str(mark)}
                     )
         return marks
+    
 
 
 
