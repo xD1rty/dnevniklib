@@ -6,6 +6,6 @@ class DnevnikLibError(Exception):
             self.msg = None
     def __str__(self) -> str:
         if self.msg:
-            return "DnevnikLibError: {}".format(self.msg)
+            return "{}".format(self.msg)
         else:
-            return "DnevnikLibError: error"
+            return "error"
