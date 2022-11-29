@@ -1,4 +1,4 @@
-# Library for automated collection of information from the MES Diary ```dnevniklib 0.2```
+# Library for automated collection of information from the MES Diary ```dnevniklib 0.3```
 
 At this stage, the entrance to the Diary through the library is available !!!ONLY!!! by authentication token, which will be fixed in future versions
 
