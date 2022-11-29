@@ -71,4 +71,4 @@ print(school_.get_info_about_school())
  - ## Added new functions get trimester marks (Marks)
  - ## Optimization 😊
 
-## For bugs, contact the creator <a href="dirtyhornet277.t.me">TELEGRAM</a>
+## For bugs, contact the creator <a href="https://dirtyhornet277.t.me">TELEGRAM</a>
