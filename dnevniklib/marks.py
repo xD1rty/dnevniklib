@@ -1,6 +1,3 @@
-import requests
-import json 
-
 class Marks:
     def __init__(self, session, token, id) -> None:
         self.session = session
@@ -25,7 +22,29 @@ class Marks:
                         {str(lesson_): str(mark)}
                     )
         return marks
-    
+    def get_trimester_marks(self, trimester: int, academic_year_id: int = 10):
+        """
+        Триместр вводим в последовательности 0 - 1 триместр, 1 - 2 триместр, 2 - 3 триместр
+        ID года вводим 10
+        """
+        data = self.session.get(
+            f"https://dnevnik.mos.ru/reports/api/progress/json?academic_year_id={academic_year_id}&student_profile_id={self.id}",
+            headers={
+                "Authorization": self.token,
+                "Auth-Token": self.token
+            }
+        ).json()
+        marks = []
+        for lesson in data:
+            lesson_name = lesson["subject_name"]
+            if lesson["periods"] != []:
+                trimester_mark = lesson["periods"][0]["avg_five"]
+            else:
+                trimester_mark = "0"
+            marks.append({lesson_name: trimester_mark})
+        return marks
+
+
 
 
 
