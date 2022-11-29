@@ -34,7 +34,6 @@ class User:
                 "Authorization": self.token,
                 "Auth-Token": self.token
                 })
-        print(result.status_code)
         if result.status_code != 200:
             return [0, result.status_code]
         
@@ -42,5 +41,5 @@ class User:
             return [result.json(), result.status_code]
 
     def get_date_in_format(self, year, month, date):
-        return f"{year}-{month}-{date}" 
+        return f"{year}-{month}-{date}"
         

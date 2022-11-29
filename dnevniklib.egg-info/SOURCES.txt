@@ -1,6 +1,7 @@
 README.md
 setup.py
 dnevniklib/__init__.py
+dnevniklib/errors.py
 dnevniklib/homeworks.py
 dnevniklib/marks.py
 dnevniklib/school.py
