@@ -27,5 +27,5 @@ class Homeworks:
                             {"name":str(lesson_), "homework": str(homework)}
                     )
         except KeyError:
-            return DnevnikLibError("Неверная дата")
+            raise DnevnikLibError("Неверная дата")
         return homeworks
