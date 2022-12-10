@@ -1,3 +1,4 @@
+from dnevniklib.errors import *
 class Marks:
     def __init__(self, session, token, id) -> None:
         self.session = session
@@ -13,14 +14,17 @@ class Marks:
         ).json()
         marks = []
         # print(data)
-        for activity in data["activities"]:
-            if activity["type"] == "LESSON":
-                if activity["lesson"]["marks"] != []:
-                    lesson_ = activity["lesson"]["subject_name"]
-                    mark = activity["lesson"]["marks"][0]["value"]
-                    marks.append(
+        try:
+            for activity in data["activities"]:
+                if activity["type"] == "LESSON":
+                    if activity["lesson"]["marks"] != []:
+                        lesson_ = activity["lesson"]["subject_name"]
+                        mark = activity["lesson"]["marks"][0]["value"]
+                        marks.append(
                         {str(lesson_): str(mark)}
                     )
+        except KeyError:
+            return DnevnikLibError("Скорее всего, неверная дата")
         return marks
     def get_trimester_marks(self, trimester: int, academic_year_id: int = 10):
         """

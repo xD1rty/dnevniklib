@@ -1,6 +1,6 @@
 import requests
 import json
-
+from dnevniklib.errors import *
 
 class Homeworks:
     def __init__(self, session, token, id) -> None:
@@ -17,12 +17,15 @@ class Homeworks:
         ).json()
         homeworks = []
         # print(data)
-        for activity in data["activities"]:
-            if activity["type"] == "LESSON":
-                if activity["lesson"]["homework"] != '':
-                    lesson_ = activity["lesson"]["subject_name"]
-                    homework = activity["lesson"]["homework"]
-                    homeworks.append(
+        try:
+            for activity in data["activities"]:
+                if activity["type"] == "LESSON":
+                    if activity["lesson"]["homework"] != '':
+                        lesson_ = activity["lesson"]["subject_name"]
+                        homework = activity["lesson"]["homework"]
+                        homeworks.append(
                             {"name":str(lesson_), "homework": str(homework)}
                     )
+        except KeyError:
+            return DnevnikLibError("Неверная дата")
         return homeworks
