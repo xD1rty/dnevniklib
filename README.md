@@ -1,4 +1,4 @@
-# Library for automated collection of information from the MES Diary ```dnevniklib 0.3```
+# Library for automated collection of information from the MES Diary ```dnevniklib 0.5```
 
 At this stage, the entrance to the Diary through the library is available !!!ONLY!!! by authentication token, which will be fixed in future versions
 
@@ -68,7 +68,7 @@ print(school_.get_info_about_school())
 # Profit!!
 
 # Changes in the new version:
- - ## Added new functions get trimester marks (Marks)
- - ## Optimization 😊
+ - ## New return data in marks and homeworks
+ - ## User class getted insertions of func get data
 
 ## For bugs, contact the creator <a href="https://dirtyhornet277.t.me">TELEGRAM</a>
