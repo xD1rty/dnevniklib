@@ -41,5 +41,9 @@ class User:
             return [result.json(), result.status_code]
 
     def get_date_in_format(self, year, month, date):
+        if len(str(date)) == 1:
+            date ="0"+str(date)
+        if len(str(month)) == 1:
+            month ="0"+str(month)
         return f"{year}-{month}-{date}"
         
