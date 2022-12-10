@@ -1,6 +1,3 @@
-import requests
-
-
 class School:
     def __init__(self, session, token) -> None:
         self.session = session
