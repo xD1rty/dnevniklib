@@ -41,7 +41,7 @@ class Marks:
                 trimester_mark = lesson["periods"][0]["avg_five"]
             else:
                 trimester_mark = "0"
-            marks.append({lesson_name: trimester_mark})
+            marks.append({"name":lesson_name, "mark": trimester_mark})
         return marks
 
 

@@ -23,6 +23,6 @@ class Homeworks:
                     lesson_ = activity["lesson"]["subject_name"]
                     homework = activity["lesson"]["homework"]
                     homeworks.append(
-                        {str(lesson_): str(homework)}
+                            {"name":str(lesson_), "homework": str(homework)}
                     )
         return homeworks
