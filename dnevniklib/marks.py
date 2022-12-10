@@ -21,7 +21,7 @@ class Marks:
                         lesson_ = activity["lesson"]["subject_name"]
                         mark = activity["lesson"]["marks"][0]["value"]
                         marks.append(
-                        {str(lesson_): str(mark)}
+                        {"name":lesson_, "mark": mark}
                     )
         except KeyError:
             raise DnevnikLibError("Скорее всего, неверная дата")
