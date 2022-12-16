@@ -1,5 +1,7 @@
 from requests import Session
 from dnevniklib.errors import DnevnikLibError
+
+
 class User:
     def __init__(self, token=None) -> None:
         # Init function
@@ -18,6 +20,7 @@ class User:
             self.birth_date = self.data_about_user["children"][0]["birth_date"]
             self.sex = self.data_about_user["children"][0]["sex"]
             self.class_name = self.data_about_user["children"][0]["class_name"]
+            self.contract_id = self.data_about_user["children"][0]["contract_id"]
         else:
             if self.data_about_user == 403:
                 raise DnevnikLibError("non-existent token")
@@ -27,7 +30,11 @@ class User:
                 raise DnevnikLibError("Not Found")
 
 
-    def login(self) -> str:
+    def login(self):
+        """
+        Сюда ничего не задаем
+        :return:
+        """
         result = self.session.get(
             "https://dnevnik.mos.ru/mobile/api/profile", 
             headers={
@@ -40,10 +47,33 @@ class User:
         if result.json():
             return [result.json(), result.status_code]
 
-    def get_date_in_format(self, year, month, date):
+    def get_date_in_format(self, year, month, date) -> str:
+        """
+
+        :param year:
+        :param month:
+        :param date:
+        :return:
+        """
         if len(str(date)) == 1:
             date ="0"+str(date)
         if len(str(month)) == 1:
             month ="0"+str(month)
         return f"{year}-{month}-{date}"
+
+    def get_attendance_by_date(self, to_date, from_date):
+        """
+        :param to_date:
+        :param from_date:
+        :param contract_id:
+        :return:
+        """
+        data = self.session.get(
+            f"https://dnevnik.mos.ru/mobile/api/visits?from={from_date}&to={to_date}&contract_id={self.contract_id}",
+            headers={
+                "Authorization": self.token,
+                "Auth-Token": self.token
+            }
+        )
+        return data.json()["payload"]
         
