@@ -2,11 +2,13 @@ import requests
 import json
 from dnevniklib.errors import *
 
+
 class Homeworks:
     def __init__(self, session, token, id) -> None:
         self.session = session
         self.token = token
         self.id = id
+
     def get_homeworks_by_data(self, date):
         data = self.session.get(
             f"https://dnevnik.mos.ru/mobile/api/schedule?student_id={self.id}&date={date}",
@@ -24,8 +26,11 @@ class Homeworks:
                         lesson_ = activity["lesson"]["subject_name"]
                         homework = activity["lesson"]["homework"]
                         homeworks.append(
-                            {"name":str(lesson_), "homework": str(homework)}
-                    )
+                            {
+                                "name": str(lesson_),
+                                "homework": str(homework)
+                            }
+                        )
         except KeyError:
             raise DnevnikLibError("Неверная дата")
         return homeworks
