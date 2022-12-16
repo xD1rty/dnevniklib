@@ -8,4 +8,4 @@ class DnevnikLibError(Exception):
         if self.msg:
             return "{}".format(self.msg)
         else:
-            return "error"
+            return "Error"
