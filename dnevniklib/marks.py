@@ -2,10 +2,10 @@ from dnevniklib.errors import *
 
 
 class Marks:
-    def __init__(self, session, token, id) -> None:
-        self.session = session
-        self.token = token
-        self.id = id
+    def __init__(self, user) -> None:
+        self.session = user.session
+        self.token = user.token
+        self.id = user.id
 
     def get_marks_by_data(self, date):
         data = self.session.get(

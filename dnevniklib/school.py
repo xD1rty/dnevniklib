@@ -1,8 +1,8 @@
 class School:
-    def __init__(self, session, token, data_about_user) -> None:
-        self.session = session
-        self.token = token
-        self.data_about_user = data_about_user
+    def __init__(self, user) -> None:
+        self.session = user.session
+        self.token = user.token
+        self.data_about_user = user.data_about_user
     def get_info_about_school(self):
 
         # print(data)
