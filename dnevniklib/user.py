@@ -23,6 +23,7 @@ class User:
             self.sex = self.data_about_user["children"][0]["sex"]
             self.class_name = self.data_about_user["children"][0]["class_name"]
             self.contract_id = self.data_about_user["children"][0]["contract_id"]
+            self.parents = self.data_about_user["children"][0]["representatives"]
         else:
             if self.data_about_user == 403:
                 raise DnevnikLibError("non-existent token")
