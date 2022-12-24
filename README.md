@@ -1,4 +1,5 @@
-<h1 align="center">DnevnikLib v0.8</h1>
+<img src="./logo/LOGO_GITHUB.png">
+<h1 align="center">DnevnikLib</h1>
 <p align="center">
 <img src="https://img.shields.io/github/license/dirtyhornet277/dnevniklib?color=green&style=for-the-badge">
 <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/dirtyhornet277/dnevniklib?color=red&display_name=tag&style=for-the-badge">
@@ -14,6 +15,7 @@
 ### Table of contents:
 * [About](#about) 
 * [Docs](#docs)
+  + [UserToken](#usertoken)
   + [User](#user)
   + [Marks](#marks)
   + [Homeworks](#homeworks)
@@ -31,13 +33,28 @@
   <i>Its a Documentation for this library</i>
 </p>
 
+## UserToken
+
+<p align="center">
+  <i>New system to get auth token</i>
+</p>
+
+<h4>Create config file</h4>
+
+```python
+from dnevniklib.user_token_getter import UserToken
+UserToken(_login="<LOGIN>", _password="<PASSW>", browser="<CHROME OR FIREFOX>", config_file="dnevnik.json").configuration() # File must be done, but error
+```
+
+<h4>Get token</h4>
+
+```python
+from dnevniklib.user_token_getter import UserToken
+UserToken(_login="<LOGIN>", _password="<PASSW>", browser="<CHROME OR FIREFOX>", config_file="dnevnik.json").get_token() # Wait 10-15 second
+```
 
 ## User
 
-
-<p align="center">
-  <i>For get token, user <a href="https://github.com/dirtyhornet277/dnevnik_mes_token_getter">token getter</a></i>
-</p>
 
 
 <h4>Get user attendance</h4>
@@ -79,7 +96,7 @@ print(user.class_name)
 ```python
 from dnevniklib import User, Marks
 user = User(token="")
-marks=Marks(session=user.session, token=user.token, id=user.id)
+marks=Marks(user=user)
 print(marks.get_marks_by_date(date="")) # The date in a supported format can be found User().get_date_in_format(year, month, day)
 ```
 
@@ -90,7 +107,7 @@ print(marks.get_marks_by_date(date="")) # The date in a supported format can be 
 ```python
 from dnevniklib import User, Marks
 user = User(token="")
-marks=Marks(session=user.session, token=user.token, id=user.id)
+marks=Marks(user=user)
 print(marks.get_trimester_marks(trimester=0)) 
 ```
 
@@ -104,7 +121,7 @@ print(marks.get_trimester_marks(trimester=0))
 ```python
 from dnevniklib import User, Homeworks
 user = User(token="")
-homeworks=Homeworks(session=user.session, token=user.token, id=user.id)
+homeworks=Homeworks(user=user)
 print(homeworks.get_homeworks_by_date(date="")) # The date in a supported format can be found User().get_date_in_format(year, month, day)
 ```
 
