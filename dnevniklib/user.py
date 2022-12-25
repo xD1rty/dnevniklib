@@ -29,8 +29,12 @@ class User:
                 raise DnevnikLibError("non-existent token")
             elif self.data_about_user == 400:
                 raise DnevnikLibError("Bad Request")
+            elif self.data_about_user == 402:
+                raise DnevnikLibError("Non-existent token")
+            elif self.data_about_user == 401:
+                raise DnevnikLibError("Your token expired")
             else:
-                raise DnevnikLibError("Not Found")
+                raise DnevnikLibError()
 
 
     def login(self):
