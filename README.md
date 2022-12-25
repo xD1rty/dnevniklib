@@ -42,14 +42,14 @@
 <h4>Create config file</h4>
 
 ```python
-from dnevniklib.user_token_getter import UserToken
+from dnevniklib import UserToken
 UserToken(_login="<LOGIN>", _password="<PASSW>", browser="<CHROME OR FIREFOX>", config_file="dnevnik.json").configuration() # File must be done, but error
 ```
 
 <h4>Get token</h4>
 
 ```python
-from dnevniklib.user_token_getter import UserToken
+from dnevniklib import UserToken
 UserToken(_login="<LOGIN>", _password="<PASSW>", browser="<CHROME OR FIREFOX>", config_file="dnevnik.json").get_token() # Wait 10-15 second
 ```
 
