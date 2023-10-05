@@ -1,0 +1,13 @@
+from dnevniklib.student import Student
+from dnevniklib.homeworks.homeworks import Homeworks
+from dnevniklib.utils import Utils
+
+
+token = """eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIyMTI1MTM4Iiwic2NwIjoib3BlbmlkIHByb2ZpbGUiLCJhdWQiOiIyOjEiLCJuYmYiOjE2OTYxNTUyNjksIm1zaCI6IjVjN2UxYWUwLTNmY2QtNGMxZi1hZmViLTNiNzE2YjRjYTdjZSIsImF0aCI6InN1ZGlyIiwiaXNzIjoiaHR0cHM6XC9cL3NjaG9vbC5tb3MucnUiLCJybHMiOiJ7MTpbMTgzOjE2OltdLDMwOjQ6W10sNDA6MTpbXSwyMDoyOltdXX0iLCJleHAiOjE2OTcwMTkyNjksImlhdCI6MTY5NjE1NTI2OSwianRpIjoiN2ZkNTE1NzgtOWJkMi00Y2MyLTk1MTUtNzg5YmQyMWNjMjk5Iiwic3NvIjoiNjFkYjI2OGMtNDIxNC00MGZiLTg0MjEtNjhkNTM5NTYxMzdjIn0.jXVvTfEidWonv0JKsvM-DjMSU8o-43wgiK-j5KFCotz5y2GSBkk4YLLr6fInl4MdGpFNEr8nKcMRay393poS-kszUzgZ5bfmMAG3oB68eK8qZsUhQcQU6QHz3lQP-nLjuXs9FuP_IDfjMVMW6ab5iCLe9z5azjH2gDsW9kdg1olnPThyCaqWLZJ9xBxkl-QgJPCf-6G-ytWY8dg82RA8ny1eQI8Qcwt7zxleY-mqSRuCs4shx6icPKD5u_7iRdMo-5YAMGEl9MRpBU2xX-7eGaM_Ur-OYlcA4f2fCmeoO-MDi1ilhTfmbIeu6tZRcthr_9xd-2aZxEmCO_AI9XMvqA"""
+user = Student(token=token)
+print(user.first_name)
+homeworks = Homeworks(user)
+
+print(
+    "\n".join([i.subject_name for i in homeworks.get_homework_by_date(Utils.get_normal_date("2023", "09", "25"))])
+)
