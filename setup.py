@@ -2,8 +2,8 @@ import setuptools
 with open("README.md", "r") as fh:
     long_description = fh.read()
 setuptools.setup(
-    name="dnevniklib", # Replace with your username
-    version="2.0.0b",
+    name="dnevniklib",
+    version="2.0.1b0",
     author="Ivan Kriventsev",
     author_email="<dirtyhornet277@gmail.com>",
     description="Библиотека для работы с МЭШ",
