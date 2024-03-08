@@ -1,1 +1,1 @@
-from school import School
+from .school import School

@@ -13,3 +13,9 @@ GET запрос на получение данных студента (его �
 
 https://school.mos.ru/api/family/web/v1/programs/parallel_curriculum/570008?student_id=USER_ID <br>
 GET запрос на получение данных об учебных часах на весь учебный год на все предметы. В хендреры принимает X-Mes-Subsystem (familyweb), Auth-Token, Authorization.
+
+
+https://school.mos.ru/api/family/web/v1/subject_marks?student_id=USER_ID 
+GET запрос на получение предметных оценок. В Handler - X-Mes-Subsystem, Auth-Token, Auth
+
+https://school.mos.ru/api/family/web/v1/marks?student_id=17234613&from=2024-03-04&to=2024-03-10
